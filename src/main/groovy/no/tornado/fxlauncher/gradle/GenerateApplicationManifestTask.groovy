@@ -30,9 +30,9 @@ class GenerateApplicationManifestTask extends DefaultTask {
 
     @TaskAction
     void generate() {
-        if (classpath == null) {
+        if (classpath == null)
             classpath = project.configurations.getByName(FXLauncherPlugin.CONFIGURATION_NAME)
-        }
+
         setupClassLoader()
 
         FXLauncherExtension fxlauncher = project.extensions.fxlauncher
@@ -40,10 +40,14 @@ class GenerateApplicationManifestTask extends DefaultTask {
         def args = [
             fxlauncher.resolveApplicationUrl(),
             fxlauncher.resolveApplicationMainClass(),
-            fxlauncher.resolveWorkingDirectory().absolutePath,
-            '--cache-dir=' + fxlauncher.cacheDir,
-            fxlauncher.resolveApplicationParameters()
+            fxlauncher.resolveWorkingDirectory().absolutePath
         ]
+
+        if (fxlauncher.cacheDir)
+            args += '--cache-dir=' + fxlauncher.cacheDir
+
+        def appParams = fxlauncher.resolveApplicationParameters()
+        if (!appParams.isEmpty()) args += appParams
 
         loadClass(CREATE_MANIFEST_CLASSNAME).main(args as String[])
     }

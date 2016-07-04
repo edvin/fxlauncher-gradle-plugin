@@ -51,15 +51,23 @@ class FXLauncherPlugin implements Plugin<Project> {
         }
 
         project.task('copyAppDependencies',
-            type: CopyAppDependenciesTask,
-            group: 'FXLauncher',
-            description: 'Copies all application runtime dependencies into working directory',
-            dependsOn: project.tasks.jar)
+                type: CopyAppDependenciesTask,
+                group: 'FXLauncher',
+                description: 'Copies all application runtime dependencies into working directory',
+                dependsOn: project.tasks.jar
+        )
 
         project.task('generateApplicationManifest',
-            type: GenerateApplicationManifestTask,
-            group: 'FXLauncher',
-            description: 'Generates the application manifest'
+                type: GenerateApplicationManifestTask,
+                group: 'FXLauncher',
+                description: 'Generates the application manifest'
+        )
+
+        project.task('embedApplicationManifest',
+                type: EmbedApplicationManifestTask,
+                group: 'FXLauncher',
+                description: 'Embeds the application manifest in fxlauncher.jar',
+                dependsOn: 'generateApplicationManifest'
         )
     }
 }

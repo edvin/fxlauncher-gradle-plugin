@@ -46,7 +46,7 @@ def pomConfig = {
     name project.name
     description project.project_description
     url project.project_url
-    inceptionYear '2014'
+    inceptionYear '2016'
     licenses {
         license([:]) {
             name 'The Apache Software License, Version 2.0'
@@ -59,7 +59,8 @@ def pomConfig = {
     }
     developers {
         [
-            aalmiray : 'Andres Almiray'
+            aalmiray : 'Andres Almiray',
+            edvin: 'Edvin Syse'
         ].each { devId, devName ->
             developer {
                 id devId
