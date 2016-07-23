@@ -14,21 +14,13 @@
  * limitations under the License.
  */
 
+// http://central.sonatype.org/pages/gradle.html
+
 plugins {
-    id 'maven-publish'
-    id 'com.jfrog.bintray' version '1.7'
-    id 'net.nemerosa.versioning' version '2.1.0'
-    id 'com.github.kt3k.coveralls' version '2.6.3'
-    id 'com.github.ben-manes.versions' version '0.12.0'
-    id 'com.gradle.plugin-publish' version '0.9.3'
-    id 'com.github.hierynomus.license' version '0.11.0'
-    id 'idea'
+    id 'maven'
+    id 'signing'
     id 'groovy'
 }
-
-apply from: 'gradle/publishing.gradle'
-apply from: 'gradle/code-coverage.gradle'
-apply from: 'gradle/code-quality.gradle'
 
 repositories {
     jcenter()
@@ -52,39 +44,69 @@ tasks.withType(GroovyCompile) {
     targetCompatibility = 1.6
 }
 
-javadoc {
-    excludes = ['**/*.html', 'META-INF/**']
-
-    options.use         = true
-    options.splitIndex  = true
-    options.encoding    = 'UTF-8'
-    options.author      = true
-    options.version     = true
-    options.windowTitle = "$project.name $project.version API"
-    options.docTitle    = "$project.name $project.version API"
-    options.links       = ['http://docs.oracle.com/javase/7/docs/api/']
+signing {
+    sign configurations.archives
 }
 
-task sourcesJar(type: Jar) {
-    group 'Build'
-    description 'An archive of the source code'
-    classifier 'sources'
-    from sourceSets.main.allSource
+group = "no.tornado"
+archivesBaseName = "fxlauncher-gradle-plugin"
+version = "1.0.11"
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name 'FXLauncher Gradle plugin'
+                packaging 'jar'
+                // optionally artifactId can be defined here
+                description 'FXLauncher Gradle plugin'
+                url 'https://github.com/edvin/fxlauncher-gradle-plugin'
+
+                scm {
+                    connection 'scm:svn:https://github.com/edvin/fxlauncher-gradle-plugin'
+                    developerConnection 'scm:svn:https://github.com/edvin/fxlauncher-gradle-plugin'
+                    url 'https://github.com/edvin/fxlauncher-gradle-plugin'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'edvin'
+                        name 'Edvin Syse'
+                        email 'es@syse.no'
+                    }
+                }
+            }
+        }
+    }
 }
 
 task javadocJar(type: Jar) {
-    group 'Build'
-    description 'An archive of the javadoc'
-    classifier 'javadoc'
-    from javadoc.destinationDir
+    classifier = 'javadoc'
+    from javadoc
 }
 
-jar.finalizedBy sourcesJar
-jar.finalizedBy javadocJar
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
 
 artifacts {
-    sourcesJar
-    javadocJar
+    archives javadocJar, sourcesJar
 }
-
-task publishRelease(dependsOn: [bintrayUpload, publishPlugins]) {}
