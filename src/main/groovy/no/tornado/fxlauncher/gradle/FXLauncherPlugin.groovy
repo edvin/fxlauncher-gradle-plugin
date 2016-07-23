@@ -69,5 +69,12 @@ class FXLauncherPlugin implements Plugin<Project> {
                 description: 'Embeds the application manifest in fxlauncher.jar',
                 dependsOn: 'generateApplicationManifest'
         )
+
+        project.task('generateNativeInstaller',
+                type: GenerateNativeInstallerTask,
+                group: 'FXLauncher',
+                description: 'Generate a native installer for your platform using javapackager',
+                dependsOn: 'embedApplicationManifest'
+        )
     }
 }

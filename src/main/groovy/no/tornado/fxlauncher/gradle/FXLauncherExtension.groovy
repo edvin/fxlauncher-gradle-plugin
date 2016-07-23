@@ -26,8 +26,6 @@ import org.gradle.api.Project
 class FXLauncherExtension {
     String fxlauncherVersion = '1.0.11'
 
-    String installerName
-
     String applicationMainClass
 
     String applicationParameters
@@ -66,11 +64,6 @@ class FXLauncherExtension {
     String resolveApplicationUrl() {
         if (applicationUrl) return applicationUrl
         throw new GradleException('Must define a value for `fxlauncher.applicationUrl`!')
-    }
-
-    String resolveApplicationVendor() {
-        if (applicationVendor) return applicationVendor
-        throw new GradleException('Must define a value for `fxlauncher.applicationVendor`!')
     }
 
     String resolveApplicationParameters() {
