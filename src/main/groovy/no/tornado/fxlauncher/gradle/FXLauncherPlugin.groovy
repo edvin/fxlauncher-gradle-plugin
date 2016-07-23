@@ -60,6 +60,7 @@ class FXLauncherPlugin implements Plugin<Project> {
         project.task('generateApplicationManifest',
                 type: GenerateApplicationManifestTask,
                 group: 'FXLauncher',
+                dependsOn: 'copyAppDependencies',
                 description: 'Generates the application manifest'
         )
 
@@ -74,6 +75,13 @@ class FXLauncherPlugin implements Plugin<Project> {
                 type: GenerateNativeInstallerTask,
                 group: 'FXLauncher',
                 description: 'Generate a native installer for your platform using javapackager',
+                dependsOn: 'embedApplicationManifest'
+        )
+
+        project.task('deployApp',
+                type: DeployAppTask,
+                group: 'FXLauncher',
+                description: 'Deploy the application artifacts to the remote repository via scp',
                 dependsOn: 'embedApplicationManifest'
         )
     }

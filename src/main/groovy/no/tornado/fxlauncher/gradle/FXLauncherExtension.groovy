@@ -36,6 +36,8 @@ class FXLauncherExtension {
 
     String applicationUrl
 
+    String deployTarget
+
     String cacheDir
 
     File workingDirectory

@@ -12,11 +12,12 @@ class GenerateNativeInstallerTask extends DefaultTask {
     void generate() {
         FXLauncherExtension fxlauncher = project.extensions.fxlauncher
 
+        def installerDir = project.file("${project.buildDir}/installer")
+
         def status = new ProcessBuilder('javapackager',
                 '-deploy',
                 '-native',
-                '-outdir',
-                'installer',
+                '-outdir', installerDir.toString(),
                 '-outfile', project.name,
                 '-srcdir', fxlauncher.resolveWorkingDirectory().toString(),
                 '-srcfiles', 'fxlauncher.jar',
@@ -31,6 +32,8 @@ class GenerateNativeInstallerTask extends DefaultTask {
 
         if (status != 0)
             throw new GradleException('javapackager exited with status ' + status)
+
+        println("Native installer is now available in " + installerDir.absolutePath)
     }
 
 }
