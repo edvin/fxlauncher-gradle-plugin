@@ -16,6 +16,17 @@ The plugin supports the following tasks:
 Configuration example:
 
 ```groovy
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'no.tornado:fxlauncher-gradle-plugin:1.0.11'
+    }
+}
+
+apply plugin: 'no.tornado.fxlauncher'
+
 fxlauncher {
     applicationVendor 'My Company'
     applicationUrl 'http://fxldemo.tornado.no/'
