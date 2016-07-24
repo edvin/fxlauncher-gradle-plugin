@@ -10,7 +10,7 @@ The plugin supports the following tasks:
 - **copyAppDependencies**: Assembles the application into `build/fxlauncher`
 - **generateApplicationManifest**: Generates app.xml into `build/fxlauncher`
 - **embedApplicationManifest**: Copies app.xml into `fxlauncher.jar`
-- **deployApp**: Transfers application to appDeployTarget via scp
+- **deployApp**: Transfers application to `deployTarget` via scp
 - **generateNativeInstaller**: Generates native installer
 
 Configuration example:
