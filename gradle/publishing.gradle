@@ -87,33 +87,6 @@ publishing {
     }
 }
 
-if (!project.hasProperty('bintrayUsername')) ext.bintrayUsername = 'invalid'
-if (!project.hasProperty('bintrayApiKey')) ext.bintrayApiKey = 'invalid'
-
-bintray {
-    user = project.bintrayUsername
-    key = project.bintrayApiKey
-    publications = ['mavenCustom']
-    pkg {
-        repo = project.project_bintray_repo
-        userOrg = project.project_bintray_org
-        name = project.name
-        desc = project.project_description
-        licenses = ['Apache-2.0']
-        labels = ['gradle', 'plugin', 'javafx', 'launcher']
-        websiteUrl = project.project_url
-        issueTrackerUrl = project.project_issues_url
-        vcsUrl = project.project_scm
-        publicDownloadNumbers = true
-        version {
-            vcsTag = project.version
-            attributes = [
-                'gradle-plugin': 'no.tornado.fxlauncher:org.kordamp.gradle:stats-gradle-plugin'
-            ]
-        }
-    }
-}
-
 pluginBundle {
     website = project.project_url
     vcsUrl = project.project_scm

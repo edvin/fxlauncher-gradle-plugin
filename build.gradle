@@ -87,6 +87,10 @@ uploadArchives {
 
                 developers {
                     developer {
+                        id 'aalmiray'
+                        name 'Andres Almiray'
+                    }
+                    developer {
                         id 'edvin'
                         name 'Edvin Syse'
                         email 'es@syse.no'
