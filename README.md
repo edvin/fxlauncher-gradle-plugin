@@ -29,9 +29,9 @@ apply plugin: 'no.tornado.fxlauncher'
 
 fxlauncher {
     applicationVendor 'My Company'
-    applicationUrl 'http://fxldemo.tornado.no/'
-    applicationMainClass 'no.tornado.FxlDemo'
-    deployTarget 'w48839@fxldemo.tornado.no:fxldemo'
+    applicationUrl 'http://host/path'
+    applicationMainClass 'com.example.Application'
+    deployTarget 'username@hostname:path'
 }
 ```
 
