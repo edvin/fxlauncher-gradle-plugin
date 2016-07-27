@@ -33,5 +33,9 @@ public class CopyAppDependenciesTask extends DefaultTask {
                 rename { "${artifact.name}.${artifact.extension}" }
             }
         }
+        project.copy {
+            from project.tasks.jar.archivePath
+            into workingDirectory
+        }
     }
 }
