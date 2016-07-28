@@ -24,7 +24,7 @@ import org.gradle.api.Project
  */
 @CompileStatic
 class FXLauncherExtension {
-    String fxlauncherVersion = '1.0.11.1'
+    String fxlauncherVersion = '1.0.11'
 
     String applicationMainClass
 
