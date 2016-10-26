@@ -1,3 +1,7 @@
+[1.0.14] - 2016-10-26
+
+## FXLauncher version 1.0.14
+
 [1.0.12] - 2016-08-17
 
 ## FXLauncher version 1.0.12
