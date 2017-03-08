@@ -50,7 +50,7 @@ signing {
 
 group = "no.tornado"
 archivesBaseName = "fxlauncher-gradle-plugin"
-version = "1.0.14"
+version = "1.0.15"
 
 uploadArchives {
     repositories {

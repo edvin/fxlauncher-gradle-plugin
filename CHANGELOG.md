@@ -1,3 +1,7 @@
+[1.0.15]
+
+- `scpOptions` adds parameters to the scp command in `deployApp`
+
 [1.0.14] - 2016-10-26
 
 ## FXLauncher version 1.0.14

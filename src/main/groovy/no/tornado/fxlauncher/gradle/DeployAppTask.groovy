@@ -18,14 +18,11 @@ class DeployAppTask extends DefaultTask {
         if (!fxlauncher.deployTarget)
             throw new GradleException('Must define a value for `fxlauncher.deployTarget`! (Example user@host:path)')
 
-        def status = new ProcessBuilder(
-                "scp",
-                "-r",
-                fxlauncher.resolveWorkingDirectory().toString() + '/.',
-                fxlauncher.deployTarget
-        )
-                .start()
-                .waitFor()
+        def params = ["scp"]
+        if (fxlauncher.scpOptions) params.add(fxlauncher.scpOptions)
+        params.addAll("-r", fxlauncher.resolveWorkingDirectory().toString() + '/.', fxlauncher.deployTarget)
+
+        def status = new ProcessBuilder(params).start().waitFor()
 
         if (status != 0)
             throw new GradleException("scp exited with status ${status}")
