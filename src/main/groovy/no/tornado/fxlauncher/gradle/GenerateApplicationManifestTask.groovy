@@ -49,6 +49,8 @@ class GenerateApplicationManifestTask extends DefaultTask {
         if (fxlauncher.acceptDowngrade)
             args += '--accept-downgrade=' + fxlauncher.acceptDowngrade
 
+        args += '--lingering-update-screen=' + fxlauncher.lingeringUpdateScreen
+
         def appParams = fxlauncher.resolveApplicationParameters()
         if (!appParams.isEmpty()) args += appParams
 

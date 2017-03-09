@@ -44,6 +44,8 @@ class FXLauncherExtension {
 
     Boolean acceptDowngrade
 
+    Boolean lingeringUpdateScreen = false
+
     File workingDirectory
 
     boolean noDefaultRepositories = false

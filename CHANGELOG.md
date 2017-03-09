@@ -1,5 +1,6 @@
 [1.0.15]
 
+- `lingeringUpdateScreen` parameter specifies if update screen should stay until primary stage is shown
 - `scpOptions` adds parameters to the scp command in `deployApp`
 
 [1.0.14] - 2016-10-26
