@@ -38,3 +38,11 @@ fxlauncher {
 **Please note that the `deployApp` task requires the scp binary to be present in your path, and that you have installed the corresponding target host key locally and the public key on the target**
 
 Optionally include `scpOptions '-v'` to enable verbose output from scp if you run into trouble.
+
+## Optional parameters
+
+### Keep update screen until primary stage is shown, even if update is completed
+
+```groovy
+lingeringUpdateScreen true
+```
