@@ -21,7 +21,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'no.tornado:fxlauncher-gradle-plugin:1.0.15'
+        classpath 'no.tornado:fxlauncher-gradle-plugin:1.0.16'
     }
 }
 
@@ -37,7 +37,7 @@ fxlauncher {
 
 **Please note that the `deployApp` task requires the scp binary to be present in your path, and that you have installed the corresponding target host key locally and the public key on the target**
 
-Optionally include `scpOptions '-v'` to enable verbose output from scp if you run into trouble.
+Optionally include `scpOptions = ['-v']` to enable verbose output from scp if you run into trouble.
 
 ## Optional parameters
 

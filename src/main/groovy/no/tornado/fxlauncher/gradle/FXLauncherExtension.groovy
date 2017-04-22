@@ -24,7 +24,7 @@ import org.gradle.api.Project
  */
 @CompileStatic
 class FXLauncherExtension {
-    String fxlauncherVersion = '1.0.15'
+    String fxlauncherVersion = '1.0.16'
 
     String applicationMainClass
 
@@ -38,7 +38,7 @@ class FXLauncherExtension {
 
     String deployTarget
 
-    String scpOptions
+    List<String> scpOptions
 
     String cacheDir
 
