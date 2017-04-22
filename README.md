@@ -41,6 +41,9 @@ Optionally include `scpOptions = ['-v']` to enable verbose output from scp if yo
 
 ## Optional parameters
 
+If you need to further customize the parameters to `javapackager` you can supply the `javapackagerOptions` parameter, which takes a `List<String>`. Consult
+the [JavaPackager docs](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javapackager.html) for more information about possible parameters.
+
 ### Keep update screen until primary stage is shown, even if update is completed
 
 ```groovy

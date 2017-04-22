@@ -40,6 +40,8 @@ class FXLauncherExtension {
 
     List<String> scpOptions
 
+    List<String> javapackagerOptions
+
     String cacheDir
 
     Boolean acceptDowngrade

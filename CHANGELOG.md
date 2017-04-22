@@ -2,6 +2,7 @@
 
 - FXLauncher version 1.0.16
 - `scpOptions` was changed to `List<String>`
+- `javapackagerOptions` takes a `List<String>` with optional extra parameters for `javapackager`
 
 ## [1.0.15]
 
