@@ -48,6 +48,8 @@ class FXLauncherExtension {
 
     boolean noDefaultRepositories = false
 
+    boolean stopOnUpdateErrors = false
+
     final Project project
 
     FXLauncherExtension(Project project) {
