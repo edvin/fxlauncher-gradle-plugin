@@ -46,6 +46,9 @@ class GenerateApplicationManifestTask extends DefaultTask {
         if (fxlauncher.cacheDir)
             args += '--cache-dir=' + fxlauncher.cacheDir
 
+        if(fxlauncher.stopOnUpdateErrors)
+            args += '--stopOnUpdateErrors'
+
         if (fxlauncher.acceptDowngrade)
             args += '--accept-downgrade=' + fxlauncher.acceptDowngrade
 
