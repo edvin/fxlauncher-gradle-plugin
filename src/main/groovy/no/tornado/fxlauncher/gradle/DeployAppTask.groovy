@@ -7,8 +7,6 @@ import org.gradle.api.tasks.TaskAction
 /**
  * This task requires the scp command and established credentials to the remote server
  * where the application artifacts should be uploaded.
- *
- * @author Edvin Syse
  */
 class DeployAppTask extends DefaultTask {
     @TaskAction
@@ -16,7 +14,7 @@ class DeployAppTask extends DefaultTask {
         FXLauncherExtension fxlauncher = project.extensions.fxlauncher
 
         if (!fxlauncher.deployTarget)
-            throw new GradleException('Must define a value for `fxlauncher.deployTarget`! (Example user@host:path)')
+            throw new GradleException('Must define a value for `fxlauncher.deployTarget`! (Example user@host:path or c:/some/path)')
 
         def params = ["scp"]
         if (fxlauncher.scpOptions) params.addAll(fxlauncher.scpOptions)
