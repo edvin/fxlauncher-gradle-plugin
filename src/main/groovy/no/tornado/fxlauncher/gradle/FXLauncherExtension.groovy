@@ -44,6 +44,8 @@ class FXLauncherExtension {
 
     String cacheDir
 
+    String certDigest
+
     Boolean acceptDowngrade
 
     Boolean lingeringUpdateScreen = false
