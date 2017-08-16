@@ -39,7 +39,7 @@ fxlauncher {
 
 The `deployTarget` option also accepts deploying to local file system paths, for example: `c:/some/path`.
 
-Optionally include `scpOptions = ['-v']` to enable verbose output from scp if you run into trouble.
+Optionally include `scpOptions = ["-v"]` to enable verbose output from scp if you run into trouble.
 
 ## Optional parameters
 

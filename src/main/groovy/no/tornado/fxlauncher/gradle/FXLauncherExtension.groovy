@@ -38,6 +38,8 @@ class FXLauncherExtension {
 
     String deployTarget
 
+    String whatsNew
+
     List<String> scpOptions
 
     List<String> javapackagerOptions
