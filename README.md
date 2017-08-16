@@ -41,6 +41,10 @@ The `deployTarget` option also accepts deploying to local file system paths, for
 
 Optionally include `scpOptions = ["-v"]` to enable verbose output from scp if you run into trouble.
 
+## What's new file
+
+Supply `whatsNew whatsnew.html` to include an HTML file that will be shown to the user after update.
+
 ## Optional parameters
 
 If you need to further customize the parameters to `javapackager` you can supply the `javapackagerOptions` parameter, which takes a `List<String>`. Consult
