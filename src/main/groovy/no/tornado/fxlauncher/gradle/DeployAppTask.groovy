@@ -23,7 +23,7 @@ class DeployAppTask extends DefaultTask {
         def status = new ProcessBuilder(params).start().waitFor()
 
         if (status != 0)
-            throw new GradleException("scp exited with status ${status}")
+            throw new GradleException("${params.join(" ")} exited with status ${status}")
 
         println("Artifacts in ${fxlauncher.resolveWorkingDirectory()} were deployed to to ${fxlauncher.deployTarget}")
     }
