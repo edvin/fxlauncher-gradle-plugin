@@ -30,7 +30,7 @@ class GenerateNativeInstallerTask extends DefaultTask {
 
         if (fxlauncher.javapackagerOptions) params.addAll(fxlauncher.javapackagerOptions)
 
-        def status = new ProcessBuilder(params).start().waitFor()
+        def status = new ProcessBuilder(params).inheritIO().start().waitFor()
 
         if (status != 0)
             throw new GradleException('javapackager exited with status ' + status)
