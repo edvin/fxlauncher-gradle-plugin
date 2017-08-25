@@ -40,6 +40,12 @@ class FXLauncherExtension {
 
     String whatsNew
 
+    String preloadNativeLibraries
+
+    String includeExtensions
+
+    String nativeLibraryPath
+
     List<String> scpOptions
 
     List<String> javapackagerOptions

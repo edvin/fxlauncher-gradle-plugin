@@ -37,5 +37,11 @@ public class CopyAppDependenciesTask extends DefaultTask {
             from project.tasks.jar.archivePath
             into workingDirectory
         }
+        if (project.extensions.fxlauncher.nativeLibraryPath) {
+            project.copy {
+                from project.extensions.fxlauncher.nativeLibraryPath
+                into workingDirectory
+            }
+        }
     }
 }

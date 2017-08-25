@@ -55,6 +55,13 @@ class GenerateApplicationManifestTask extends DefaultTask {
         if (fxlauncher.whatsNew)
             args += '--whats-new=' + fxlauncher.whatsNew
 
+        if (fxlauncher.preloadNativeLibraries)
+            args += '--preload-native-libraries=' + fxlauncher.preloadNativeLibraries
+
+        if (fxlauncher.includeExtensions)
+            args += '--include-extensions=' + fxlauncher.includeExtensions
+
+
         args += '--lingering-update-screen=' + fxlauncher.lingeringUpdateScreen
 
         def appParams = fxlauncher.resolveApplicationParameters()
