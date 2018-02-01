@@ -22,8 +22,8 @@ class GenerateNativeInstallerTask extends DefaultTask {
                       '-srcdir', fxlauncher.resolveWorkingDirectory().toString(),
                       '-srcfiles', 'fxlauncher.jar',
                       '-appclass', 'fxlauncher.Launcher',
-                      '-name', project.name,
-                      '-title', project.name,
+                      '-name', fxlauncher.applicationName ?: project.name,
+                      '-title', fxlauncher.applicationTitle ?: project.name,
                       '-vendor', fxlauncher.applicationVendor ?: "Acme Inc",
                       '-Bidentifier=' + project.group + '.' + project.name,
                       '-BappVersion=' + project.version]

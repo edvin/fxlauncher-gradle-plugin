@@ -28,7 +28,11 @@ class FXLauncherExtension {
 
     String applicationMainClass
 
+    String applicationName
+
     String applicationParameters
+
+    String applicationTitle
 
     String applicationVendor
 
