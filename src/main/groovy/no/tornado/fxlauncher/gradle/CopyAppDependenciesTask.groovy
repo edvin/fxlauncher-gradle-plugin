@@ -30,7 +30,11 @@ public class CopyAppDependenciesTask extends DefaultTask {
             project.copy {
                 from artifact.file
                 into workingDirectory
-                rename { "${artifact.name}.${artifact.extension}" }
+                if (artifact.classifier != null) {
+                    rename { "${artifact.name}-${artifact.classifier}.${artifact.extension}" }
+                } else {
+                    rename { "${artifact.name}.${artifact.extension}" }
+                }
             }
         }
         project.copy {
