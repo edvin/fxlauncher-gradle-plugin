@@ -43,7 +43,7 @@ Optionally include `scpOptions = ["-v"]` to enable verbose output from scp if yo
 
 ## What's new file
 
-Supply `whatsNew whatsnew.html` to include an HTML file that will be shown to the user after update.
+Supply `whatsNew https://whatsnew/url` to include an HTML link that will be shown to the user after update.
 
 ## Optional parameters
 

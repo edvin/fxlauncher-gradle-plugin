@@ -1,5 +1,6 @@
-## [1.0.18-SNAPSHOT]
+## [1.0.20]
 
+- FXLauncher version 1.0.20
 - whatsNew support
 
 ## [1.0.16]
