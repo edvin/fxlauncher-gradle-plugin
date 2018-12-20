@@ -27,26 +27,50 @@ import org.gradle.api.tasks.incremental.IncrementalTaskInputs
  */
 public class CopyAppDependenciesTask extends DefaultTask {
     @InputFiles
-    private FileCollection dependencies
+    FileCollection dependencies
     @OutputDirectory
-    private File directoryToCopyTo
+    File directoryToCopyTo
 
 
     @TaskAction
-    void copyDependencies() {
-        File workingDirectory = project.extensions.fxlauncher.resolveWorkingDirectory()
-        if (!workingDirectory.exists()) workingDirectory.mkdirs()
-        project.configurations.runtime.resolvedConfiguration.resolvedArtifacts.each { artifact ->
+    void copyDependencies(IncrementalTaskInputs inputs) {
+
+        if (!directoryToCopyTo.exists()) directoryToCopyTo.mkdirs()
+
+        println inputs.incremental ? 'incremental' : 'not incremental'
+
+
+        if (!inputs.incremental)
+            project.delete(directoryToCopyTo.listFiles())
+
+        inputs.outOfDate { artifact ->
+            if (artifact.file.directory) return
+
+            println "Copying ${artifact.file.name} to ${directoryToCopyTo.name}"
+
             project.copy {
                 from artifact.file
-                into workingDirectory
+                into directoryToCopyTo
                 if (artifact.classifier != null) {
                     rename { "${artifact.name}-${artifact.classifier}.${artifact.extension}" }
                 } else {
                     rename { "${artifact.name}.${artifact.extension}" }
                 }
             }
+
         }
+
+        inputs.removed { change ->
+            if (change.file.directory) return
+
+            println "Removing ${change.file.name} from ${directoryToCopyTo.name}"
+            def targetFile = new File(directoryToCopyTo, change.file.name)
+            targetFile.delete()
+        }
+
+
+
+        // TODO: Do we need to add these as @Inputs, too?
         project.copy {
             from project.tasks.jar.archivePath
             into workingDirectory
@@ -57,5 +81,6 @@ public class CopyAppDependenciesTask extends DefaultTask {
                 into workingDirectory
             }
         }
+
     }
 }
