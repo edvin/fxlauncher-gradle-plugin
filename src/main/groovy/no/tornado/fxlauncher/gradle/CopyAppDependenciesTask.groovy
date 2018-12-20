@@ -16,12 +16,22 @@
 package no.tornado.fxlauncher.gradle
 
 import org.gradle.api.DefaultTask
+import org.gradle.api.file.FileCollection
+import org.gradle.api.tasks.InputFiles
+import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
+import org.gradle.api.tasks.incremental.IncrementalTaskInputs
 
 /**
  * @author Andres Almiray
  */
 public class CopyAppDependenciesTask extends DefaultTask {
+    @InputFiles
+    private FileCollection dependencies
+    @OutputDirectory
+    private File directoryToCopyTo
+
+
     @TaskAction
     void copyDependencies() {
         File workingDirectory = project.extensions.fxlauncher.resolveWorkingDirectory()
