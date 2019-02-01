@@ -1,3 +1,7 @@
+## [1.0.21]
+
+- FXLauncher version 1.0.21
+
 ## [1.0.20]
 
 - FXLauncher version 1.0.20
