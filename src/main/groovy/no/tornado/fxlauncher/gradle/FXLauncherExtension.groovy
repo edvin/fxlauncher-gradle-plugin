@@ -53,6 +53,7 @@ class FXLauncherExtension {
     List<String> scpOptions
 
     List<String> javapackagerOptions
+    String javapackerNativeParam = ""
 
     String cacheDir
 
@@ -67,6 +68,8 @@ class FXLauncherExtension {
     boolean stopOnUpdateErrors = false
 
     final Project project
+
+
 
     FXLauncherExtension(Project project) {
         this.project = project

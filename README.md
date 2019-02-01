@@ -50,6 +50,9 @@ Supply `whatsNew https://whatsnew/url` to include an HTML link that will be show
 If you need to further customize the parameters to `javapackager` you can supply the `javapackagerOptions` parameter, which takes a `List<String>`. Consult
 the [JavaPackager docs](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javapackager.html) for more information about possible parameters.
 
+Use `javapackerNativeParam` to supply arguments to `javapackager -native` flag such as `msi` or `dep` in order to generate native installer packages instead of MSI.
+
+
 ### Keep update screen until primary stage is shown, even if update is completed
 
 ```groovy

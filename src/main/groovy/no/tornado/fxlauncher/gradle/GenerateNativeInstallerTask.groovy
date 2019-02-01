@@ -16,7 +16,7 @@ class GenerateNativeInstallerTask extends DefaultTask {
 
         def params = ['javapackager',
                       '-deploy',
-                      '-native',
+                      '-native', fxlauncher.javapackerNativeParam,
                       '-outdir', installerDir.toString(),
                       '-outfile', project.name,
                       '-srcdir', fxlauncher.resolveWorkingDirectory().toString(),
