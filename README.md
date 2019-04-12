@@ -11,7 +11,7 @@ The plugin supports the following tasks:
 - **generateApplicationManifest**: Generates app.xml into `build/fxlauncher`
 - **embedApplicationManifest**: Copies app.xml into `fxlauncher.jar`
 - **deployApp**: Transfers application to `deployTarget` via scp
-- **generateNativeInstaller**: Generates native installer
+- **generateNativeInstaller**: Generates a native installer
 
 Configuration example:
 
@@ -21,7 +21,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'no.tornado:fxlauncher-gradle-plugin:1.0.17'
+        classpath 'no.tornado:fxlauncher-gradle-plugin:1.0.21'
     }
 }
 
