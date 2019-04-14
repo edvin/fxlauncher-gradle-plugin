@@ -37,11 +37,24 @@ class GenerateApplicationManifestTask extends DefaultTask {
 
         FXLauncherExtension fxlauncher = project.extensions.fxlauncher
 
+        // These first three arguments are required by the CreateManifest class.
         def args = [
             fxlauncher.resolveApplicationUrl(),
             fxlauncher.resolveApplicationMainClass(),
             fxlauncher.resolveWorkingDirectory().absolutePath
         ]
+
+        if (fxlauncher.updateText)
+            args += '--update-text=' + fxlauncher.updateText
+
+        if (fxlauncher.updateLabelStyle)
+            args += '--update-label-style=' + fxlauncher.updateLabelStyle
+
+        if (fxlauncher.progressBarStyle)
+            args += '--progress-bar-style=' + fxlauncher.progressBarStyle
+
+        if (fxlauncher.wrapperStyle)
+            args += '--wrapper-style=' + fxlauncher.wrapperStyle
 
         if (fxlauncher.cacheDir)
             args += '--cache-dir=' + fxlauncher.cacheDir
