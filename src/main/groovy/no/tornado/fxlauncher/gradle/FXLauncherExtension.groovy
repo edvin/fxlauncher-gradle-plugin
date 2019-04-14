@@ -53,6 +53,33 @@ class FXLauncherExtension {
     List<String> scpOptions
 
     List<String> javapackagerOptions
+
+    /**
+     * The type of native bundle you'd like the
+     * <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/packager.html">javapackager</a> to create.
+     * <p>
+     * If left blank, the default is "all".
+     * <p>
+     * The following values are valid:
+     * <ul>
+     * <li>jnlp: Generates the .jnlp and .html files for a Java Web Start application.</li>
+     * <li>all: Runs all of the installers for the platform on which it’s running, and creates a disk image for the application. This value is used if type isn’t specified.</li>
+     * <li>installer: Runs all of the installers for the platform on which it’s running.</li>
+     * <li>image: Creates a disk image for the application.
+     *   <ul>
+     *     <li>Linux and Windows: The image is the directory that gets installed.</li>
+     *     <li>macOS: The image is the .app file.</li>
+     *   </ul>
+     * </li>
+     * <li><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/self-contained-packaging.html#BCGGFFBG">exe</a>: Generates a Windows .exe package.</li>
+     * <li><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/self-contained-packaging.html#JSDPG601">msi</a>: Generates a Windows Installer package.</li>
+     * <li><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/self-contained-packaging.html#JSDPG602">dmg</a>: Generates a DMG file for macOS.</li>
+     * <li>pkg: Generates a .pkg package for macOS.</li>
+     * <li>mac.appStore: Generates a package for the Mac App Store.</li>
+     * <li><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/self-contained-packaging.html#JSDPG603">rpm</a>: Generates an RPM package for Linux.</li>
+     * <li><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/self-contained-packaging.html#JSDPG603">deb</a>: Generates a Debian package for Linux.</li>
+     * </ul>
+     */
     String javapackerNativeParam = ""
 
     String cacheDir
