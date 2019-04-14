@@ -56,7 +56,7 @@ class FXLauncherExtension {
     String javapackerNativeParam = ""
 
     /**
-     * The text that the launcher will show when showing the FXLauncher updating user interface.
+     * The text that the launcher will show in the FXLauncher updating window.
      * <p>
      * The default is <code>Updating...</code>.
      */

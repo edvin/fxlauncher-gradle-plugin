@@ -37,9 +37,42 @@ fxlauncher {
 
 **Please note that the `deployApp` task requires the scp binary to be present in your path, and that you have installed the corresponding target host key locally and the public key on the target**
 
-The `deployTarget` option also accepts deploying to local file system paths, for example: `c:/some/path`.
+The `deployTarget` option also accepts deploying to local file system paths, for example: `C:/some/path`.
 
 Optionally include `scpOptions = ["-v"]` to enable verbose output from scp if you run into trouble.
+
+## User interface customization
+You can change how the FXLauncher's user interface looks when it's updating the app.
+
+### Update Text
+#### Actual Text
+To change the default "Updating..." text, add something like `updateText 'Updating CoolApp...'` to the fxlauncher 
+section of your build.gradle file.
+
+#### Text Style
+To style the update text, add something like `updateLabelStyle '-fx-underline: true;'` to the fxlauncher section of 
+your build.gradle file. You can use any valid CSS rule that applies to a Labeled. Here's [the list for Labeled][Labeled CSS], 
+but don't forget about the rules for its parents, [Control][Control CSS], [Region][Region CSS], [Parent][Parent CSS], 
+and [Node][Node CSS].
+
+### Progress Bar
+To style the progress bar, add something like `progressBarStyle '-fx-accent: lime;'` to the fxlauncher section of 
+your build.gradle file. (Hint: `-fx-accent` happens to be the rule that controls the progress bar's color. See java's 
+modena.css)
+
+### Text and Bar Wrapper
+There's a VBox around everything. To style it, add something like `-fx-spacing: 20;`to the fxlauncher section of your 
+build.gradle file. You can use any valid CSS rule that applies to a VBox. Here's the [list for VBox][VBox CSS], but 
+don't forget about the rules for its parents, [Pane][Pane CSS], [Region][Region CSS], [Parent][Parent CSS], and 
+[Node][Node CSS].
+
+[Labeled CSS]: https://docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html#labeled
+[Control CSS]: https://docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html#control
+[VBox CSS]: https://docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html#vbox
+[Pane CSS]: https://docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html#pane
+[Region CSS]: https://docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html#region
+[Parent CSS]: https://docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html#parent
+[Node CSS]: https://docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html#node
 
 ## What's new file
 
