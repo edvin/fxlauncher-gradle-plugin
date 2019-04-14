@@ -58,13 +58,15 @@ and [Node][Node CSS].
 ### Progress Bar
 To style the progress bar, add something like `progressBarStyle '-fx-accent: lime;'` to the fxlauncher section of 
 your build.gradle file. (Hint: `-fx-accent` happens to be the rule that controls the progress bar's color. See java's 
-modena.css)
+modena.css as well as this [StackOverflow question][StackOverflow Question About Bar Color])
 
 ### Text and Bar Wrapper
 There's a VBox around everything. To style it, add something like `-fx-spacing: 20;`to the fxlauncher section of your 
 build.gradle file. You can use any valid CSS rule that applies to a VBox. Here's the [list for VBox][VBox CSS], but 
 don't forget about the rules for its parents, [Pane][Pane CSS], [Region][Region CSS], [Parent][Parent CSS], and 
 [Node][Node CSS].
+
+[StackOverflow Question About Bar Color]: https://stackoverflow.com/questions/13357077/javafx-progressbar-how-to-change-bar-color/13372086#13372086
 
 [Labeled CSS]: https://docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html#labeled
 [Control CSS]: https://docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html#control
