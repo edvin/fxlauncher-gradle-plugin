@@ -55,6 +55,34 @@ class FXLauncherExtension {
     List<String> javapackagerOptions
     String javapackerNativeParam = ""
 
+    /**
+     * The text that the launcher will show in the FXLauncher updating window.
+     * <p>
+     * The default is <code>Updating...</code>.
+     */
+    String updateText
+
+    /**
+     * The CSS styling to apply to the {@link #updateText} Label.
+     * <p>
+     * The default is <code>-fx-font-weight: bold;</code>.
+     */
+    String updateLabelStyle
+
+    /**
+     * The CSS styling to apply to the progress bar.
+     * <p>
+     * The default is <code>-fx-pref-width: 200;</code>.
+     */
+    String progressBarStyle
+
+    /**
+     * The CSS styling to apply to the VBox that contains the update text and the progress bar.
+     * <p>
+     * The default is <code>-fx-spacing: 10; -fx-padding: 25;</code>.
+     */
+    String wrapperStyle
+
     String cacheDir
 
     Boolean acceptDowngrade
@@ -68,7 +96,6 @@ class FXLauncherExtension {
     boolean stopOnUpdateErrors = false
 
     final Project project
-
 
 
     FXLauncherExtension(Project project) {
