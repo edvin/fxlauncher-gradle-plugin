@@ -1,3 +1,12 @@
+## [1.0.21.1]
+
+- Exposed 4 additional custom ui parameters:
+    
+    - updateText (--update-text)
+    - updateLabelStyle (--update-label-style)
+    - progressBarStyle (--progress-bar-style)
+    - wrapperStyle (--wrapper-style)
+
 ## [1.0.21]
 
 - FXLauncher version 1.0.21
