@@ -54,7 +54,11 @@ class FXLauncherPlugin implements Plugin<Project> {
                 type: CopyAppDependenciesTask,
                 group: 'FXLauncher',
                 description: 'Copies all application runtime dependencies into working directory',
-                dependsOn: project.tasks.jar
+                dependsOn: project.tasks.jar,
+                {
+                    dependencies = project.configurations.runtime.resolvedConfiguration.resolvedArtifacts
+                    directoryToCopyTo = project.extensions.fxlauncher.resolveWorkingDirectory()
+                }
         )
 
         project.task('generateApplicationManifest',
